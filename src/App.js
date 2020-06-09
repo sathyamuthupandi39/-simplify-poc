@@ -1,42 +1,12 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-
-class Item extends React.Component {
-	render() {
-  	return <li>
-      	{ this.props.name }
-        { this.props.children }
-    </li>
-  }
-}
-
-class List extends React.Component {
-	
-  list(data) {
-  	const children = (items) => {
-    	if (items) {
-      	return <ul>{ this.list(items) }</ul>
-      }
-    }
-    
-    return data.map((node, index) => {
-      return <Item key={ node.id } name={ node.name }>
-        { children(node.items) }
-      </Item>
-    })
-  }
-  
-  render() {
-  	return <ul>
-    	{ this.list(this.props.data) }
-    </ul>
-  }
-}
+import React from 'react'
+import './App.css'
+import List from './List'
+import Header from './Header'
 
 function App() {
   return (
     <div className="App">
+      <Header />
       <List data={ data } />,
     </div>
   );
@@ -44,25 +14,45 @@ function App() {
 
 const data = [{
 	"id": 1,
-  "name": "Section 1",
+  "name": "Threat Event Section",
   "items": [{
   	"id": 2, 
-    "name": "Question 1"
+    "name": "Do you know the Loss Event Frequency for this Risk?",
+    "type": "yesorno"
+    }, {
+      "id": 3,
+      "name": "Enter the frequency for this ThreatEvent",
+      "type":"text"
+  }]
   }, {
-  	"id": 3,
-    "name": "Question 2"
-  }]
-}, {
-	"id": 4,
-  "name": "Section 2",
-  "items": [{
-    "id": 5,
-    "name": "Sub section",
+    "id": 4,
+    "name": "Section 2",
     "items": [{
-    	"id": 6,
-      "name": "Question 1"
+      "id": 5,
+      "name": "Sub section",
+      "items": [{
+        "id": 6,
+        "name": "Do you know the Vulnerability Value for this Risk?",
+        "type": "yesorno"
+      }, {
+        "id": 7,
+        "name": "Do you know the Threat event Frequency for this Risk?",
+        "type": "yesorno"
+      }]
+    },
+    {
+      "id": 8,
+      "name": "Sub section",
+      "items": [{
+        "id": 9,
+        "name": "Do you know the Vulnerability Value for this Risk?",
+        "type": "yesorno"
+      }, {
+        "id": 10,
+        "name": "Do you know the Threat event Frequency for this Risk?",
+        "type": "yesorno"
+      }]
     }]
-  }]
-}];
+}]
 
-export default App;
+export default App
