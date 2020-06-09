@@ -10,7 +10,7 @@ class Input extends React.Component {
           id={this.props.id}
           type="text"
           value={this.props.value}
-          className={this.props.fieldClass}
+          className="inputField"
           onChange={this.props.onChange}
           validate={this.props.validate}
           placeholder={this.props.placeholder}

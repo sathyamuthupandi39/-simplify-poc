@@ -4,9 +4,9 @@ class Header extends React.Component {
     render() {
         return (
             <div className="header">
-                <span className="header-main">
+                <div className="header-main">
                     Assessment
-                </span>
+                </div>
                 <br />
                 <span className="header-sub">
                     Answer the below questions to the best of your knowledge to complete the risk assessment

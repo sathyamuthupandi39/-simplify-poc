@@ -11,31 +11,38 @@ class Item extends React.Component {
   }
 	render() {
   	return <li>
-      	{ this.props.name }
-        { this.props.type === 'text' &&
-          <Input 
-            id={`${inputBox}`} 
-            placeholder="type here"
-          />
-        }
-        { this.props.type === 'yesorno' &&
-          <React.Fragment>
-            <RadioButton 
-              changed={ this.radioChangeHandler } 
-              id="1" 
-              isSelected={true} 
-              label="Yes" 
-              value="Yes" 
-            />
-          
-            <RadioButton 
-              changed={ this.radioChangeHandler } 
-              id="2" 
-              label="No" 
-              value="No" 
-            />
-          </React.Fragment>
-        }
+        <div>
+          <i class="arrow down"></i>
+          <span className='question'>
+            { this.props.name }
+          </span>
+          <span className="responseType">
+            { this.props.type === 'text' &&
+              <Input 
+                id={`${inputBox}`} 
+                placeholder="type here"
+              />
+            }
+            { this.props.type === 'yesorno' &&
+              <React.Fragment>
+                <RadioButton 
+                  changed={ this.radioChangeHandler } 
+                  id="1" 
+                  isSelected={true} 
+                  label="Yes" 
+                  value="Yes" 
+                />
+              
+                <RadioButton 
+                  changed={ this.radioChangeHandler } 
+                  id="2" 
+                  label="No" 
+                  value="No" 
+                />
+              </React.Fragment>
+            }
+          </span>
+        </div>
         { this.props.children }
     </li>
   }
