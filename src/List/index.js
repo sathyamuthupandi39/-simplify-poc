@@ -6,8 +6,17 @@ let inputBox = 0
 
 class Item extends React.Component {
   inputBox = inputBox + 1
+  constructor(props) {
+		super(props);
+		this.state = {
+			toggle: false
+    }
+  }
   radioChangeHandler = (event) => {
     console.log('event')
+    this.setState({
+			toggle: !this.state.toggle
+		})
   }
 	render() {
   	return <li>
@@ -28,14 +37,15 @@ class Item extends React.Component {
                 <RadioButton 
                   changed={ this.radioChangeHandler } 
                   id="1" 
-                  isSelected={true} 
+                  isSelected={!this.state.toggle} 
                   label="Yes" 
                   value="Yes" 
                 />
               
                 <RadioButton 
                   changed={ this.radioChangeHandler } 
-                  id="2" 
+                  id="2"
+                  isSelected={!this.state.toggle}
                   label="No" 
                   value="No" 
                 />
@@ -58,7 +68,7 @@ class List extends React.Component {
       }
       
       return data.map((node, index) => {
-        return <Item key={ node.id } name={ node.name } type={ node.type }>
+        return <Item key={node.id} name={node.name} type={node.type} id={node.id}>
           { children(node.items) }
         </Item>
       })

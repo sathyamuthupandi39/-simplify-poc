@@ -18,11 +18,13 @@ const data = [{
   "items": [{
   	"id": 2, 
     "name": "Do you know the Loss Event Frequency for this Risk?",
-    "type": "yesorno"
+    "type": "yesorno",
+    "answer": ''
     }, {
       "id": 3,
       "name": "Enter the frequency for this ThreatEvent",
-      "type":"text"
+      "type":"text",
+      "answer": ''
   }]
   }, {
     "id": 4,
@@ -33,11 +35,13 @@ const data = [{
       "items": [{
         "id": 6,
         "name": "Do you know the Vulnerability Value for this Risk?",
-        "type": "yesorno"
+        "type": "yesorno",
+        "answer": ''
       }, {
         "id": 7,
         "name": "Do you know the Threat event Frequency for this Risk?",
-        "type": "yesorno"
+        "type": "yesorno",
+        "answer": ''
       }]
     },
     {
@@ -46,11 +50,13 @@ const data = [{
       "items": [{
         "id": 9,
         "name": "Do you know the Vulnerability Value for this Risk?",
-        "type": "yesorno"
+        "type": "yesorno",
+        "answer": ''
       }, {
         "id": 10,
         "name": "Do you know the Threat event Frequency for this Risk?",
-        "type": "yesorno"
+        "type": "yesorno",
+        "answer": ''
       }]
     }]
 }]
