@@ -9,26 +9,34 @@ class Item extends React.Component {
   constructor(props) {
 		super(props);
 		this.state = {
-			toggle: false
+      toggle: false,
+      changedText: '',
     }
   }
   radioChangeHandler = (event) => {
-    console.log('event')
+    event.persist()
     this.setState({
 			toggle: !this.state.toggle
-		})
+    })
+    this.props.updateJsonCallback(event.target.id)
+  }
+  textChangedHandler = (event) => {
+    this.setState({ changedText: event.target.value})
+    this.props.updateJsonCallback(event.target.id, event.target.value)
   }
 	render() {
   	return <li>
         <div>
-          <i class="arrow down"></i>
+          <i className="arrow down"></i>
           <span className='question'>
             { this.props.name }
           </span>
           <span className="responseType">
             { this.props.type === 'text' &&
               <Input 
-                id={`${inputBox}`} 
+                id={`${this.props.id}-text`}
+                changed={ this.textChangedHandler}
+                value={ this.state.changedText }
                 placeholder="type here"
               />
             }
@@ -36,15 +44,15 @@ class Item extends React.Component {
               <React.Fragment>
                 <RadioButton 
                   changed={ this.radioChangeHandler } 
-                  id="1" 
-                  isSelected={!this.state.toggle} 
+                  id={`${this.props.id}yes`}
+                  isSelected={this.state.toggle} 
                   label="Yes" 
                   value="Yes" 
                 />
               
                 <RadioButton 
                   changed={ this.radioChangeHandler } 
-                  id="2"
+                  id={`${this.props.id}no`}
                   isSelected={!this.state.toggle}
                   label="No" 
                   value="No" 
@@ -68,7 +76,7 @@ class List extends React.Component {
       }
       
       return data.map((node, index) => {
-        return <Item key={node.id} name={node.name} type={node.type} id={node.id}>
+        return <Item key={node.id} name={node.name} type={node.type} id={node.id} updateJsonCallback={this.props.updateJsonCallback}>
           { children(node.items) }
         </Item>
       })

@@ -1,23 +1,18 @@
 import React from "react";
 
-class Input extends React.Component {
-
-  render () {
-    return (
+const Input = (props) => {
+  return (
       <React.Fragment>
-        {this.props.label}
-        <input
-          id={this.props.id}
-          type="text"
-          value={this.props.value}
-          className="inputField"
-          onChange={this.props.onChange}
-          validate={this.props.validate}
-          placeholder={this.props.placeholder}
-        />
+          <input 
+            id={props.id} 
+            onChange={props.changed} 
+            value={props.value} 
+            type="text" 
+            className="inputField" 
+            placeholder={props.placeholder}
+          />
       </React.Fragment>
-    )
-  }
+  );
 }
 
 export default Input;
