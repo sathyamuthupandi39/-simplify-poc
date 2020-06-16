@@ -13,6 +13,7 @@ class Item extends React.Component {
       changedText: '',
     }
   }
+
   radioChangeHandler = (event) => {
     event.persist()
     this.setState({
@@ -20,14 +21,18 @@ class Item extends React.Component {
     })
     this.props.updateJsonCallback(event.target.id)
   }
+
   textChangedHandler = (event) => {
     this.setState({ changedText: event.target.value})
     this.props.updateJsonCallback(event.target.id, event.target.value)
   }
+  
 	render() {
   	return <li>
         <div>
-          <i className="arrow down"></i>
+          {!this.props.type &&
+            <i className="arrow down"></i>
+          }
           <span className='question'>
             { this.props.name }
           </span>
