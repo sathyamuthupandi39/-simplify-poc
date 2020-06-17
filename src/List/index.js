@@ -2,10 +2,7 @@ import React from 'react';
 import Input from '../Input'
 import RadioButton from '../RadioButton';
 
-let inputBox = 0
-
 class Item extends React.Component {
-  inputBox = inputBox + 1
   constructor(props) {
 		super(props);
 		this.state = {
@@ -29,9 +26,9 @@ class Item extends React.Component {
   
 	render() {
   	return <li>
-        <div>
+        <div className={`${!this.props.type ? 'collapse': ''}`}>
           {!this.props.type &&
-            <i className="arrow down"></i>
+              <i className="arrow down"></i>
           }
           <span className='question'>
             { this.props.name }
@@ -72,20 +69,36 @@ class Item extends React.Component {
 }
 
 class List extends React.Component {
-	
+    
+    componentDidMount() {
+      let toggler = document.getElementsByClassName("collapse");
+      console.log('elemets', toggler)
+      for (let i = 0; i < toggler.length; i++) {
+        toggler[i].addEventListener("click", function() {
+          this.parentElement.querySelector(".nested").classList.toggle("active")
+        })
+      }
+    }
+
     list(data) {
         const children = (items) => {
           if (items) {
-            return <ul>{ this.list(items) }</ul>
+            return <ul className="nested">{ this.list(items) }</ul>
         }
       }
       
       return data.map((node, index) => {
-        return <Item key={node.id} name={node.name} type={node.type} id={node.id} updateJsonCallback={this.props.updateJsonCallback}>
-          { children(node.items) }
-        </Item>
-      })
-    }
+        return <Item 
+                  key={node.id} 
+                  name={node.name} 
+                  type={node.type} 
+                  id={node.id} 
+                  updateJsonCallback={this.props.updateJsonCallback}
+                >
+                { children(node.items) }
+              </Item>
+            })
+      }
     
     render() {
         return <ul>

@@ -53,3 +53,11 @@ li {
 .question {
   padding-left: 3px;
 }
+
+.nested {
+  display: block;
+}
+
+.active {
+  display: none;
+}
