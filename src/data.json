@@ -22,12 +22,12 @@
           "items": [{
             "id": 6,
             "name": "Do you know the Vulnerability Value for this Risk?",
-            "type": "yesorno",
+            "type": "matrixtable",
             "answer": ""
           }, {
             "id": 7,
-            "name": "Do you know the Threat event Frequency for this Risk?",
-            "type": "yesorno",
+            "name": "How satisfied are you with your overall service experience?",
+            "type": "radiobutton",
             "answer": ""
           }]
         },
@@ -36,13 +36,28 @@
           "name": "Sub section",
           "items": [{
             "id": 9,
-            "name": "Do you know the Vulnerability Value for this Risk?",
-            "type": "yesorno",
+            "name": "If yes, does the cost include the following",
+            "type": "checkbox",
             "answer": ""
           }, {
             "id": 10,
+            "name": "Does the contract identify how much we will pay for services rendered?",
+            "type": "dropdown",
+            "answer": ""
+          }]
+        },
+        {
+          "id": 11,
+          "name": "Sub section",
+          "items": [{
+            "id": 12,
             "name": "Do you know the Threat event Frequency for this Risk?",
-            "type": "yesorno",
+            "type": "likelyscale",
+            "answer": ""
+          }, {
+            "id": 13,
+            "name": "Do you know the Threat event Frequency for this Risk?",
+            "type": "commentbox",
             "answer": ""
           }]
         }]

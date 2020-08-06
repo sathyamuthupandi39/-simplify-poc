@@ -8,7 +8,7 @@ const Input = (props) => {
             onChange={props.changed} 
             value={props.value} 
             type="text" 
-            className="inputField" 
+            className={props.className} 
             placeholder={props.placeholder}
           />
       </React.Fragment>

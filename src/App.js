@@ -1,5 +1,5 @@
 import React from 'react'
-import './App.css'
+import './App.scss'
 import List from './List'
 import Header from './Header'
 import data from './data.json'
@@ -31,6 +31,7 @@ class App extends React.Component{
   
   updateJson (id, value) {
       this.updateJsonObject(questionAndAnswer, id, value)
+      console.log('Json object', questionAndAnswer)
   }
 
   render() {
