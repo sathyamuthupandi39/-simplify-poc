@@ -1,0 +1,79 @@
+@import './MatrixTable/matrixtable.scss';
+@import './RadioButton/radiobutton.scss';
+@import './Input/input.scss';
+
+.App {
+  width: 60%;
+  padding: 20px 20px 0 20px;
+  text-align: left;
+  // background-color: rgb(198, 241, 212);
+  height: 100vh;
+  margin: 100px;
+}
+
+.header {
+  /* padding: 20px; */
+  font-size: 14px;
+}
+.header-main {
+  color: blue;
+  /* padding-bottom: 20px; */
+}
+
+.inputField {
+  width: 80px;
+}
+.responseType {
+  float: right;
+  padding: 10px 0 10px 10px;
+}
+
+ul {
+  /* padding-top: 20px; */
+  /* padding-bottom: 10px; */
+  font-size: 12px;
+}
+
+li {
+  list-style: none;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  clear: both;
+}
+
+.arrow {
+  border: solid blue;
+  border-width: 0 2px 2px 0;
+  display: inline-block;
+  padding: 2px;
+}
+
+.down {
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+}
+
+.question {
+  padding-left: 3px;
+}
+
+.nested {
+  display: block;
+}
+
+.active {
+  display: none;
+}
+
+// body {
+//   // background: $bg;
+//   // font-family: roboto;
+//   // margin: 40px 40px;
+//   height: 100vh;
+// }
+
+html, body, .root {
+  height: 100%;
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
